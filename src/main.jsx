@@ -2,6 +2,6 @@ var React = require('react');
 
 var ReactDOM = require('react-dom');
 
-var List = require('./components/List.jsx');
+var BoxManager = require('./components/BoxManager.jsx');
 
-ReactDOM.render (<List></List>, document.getElementById('ingredients'));
+ReactDOM.render (<BoxManager background="green"></BoxManager>, document.getElementById('ingredients'));

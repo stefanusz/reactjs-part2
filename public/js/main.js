@@ -19032,58 +19032,83 @@ module.exports = require('./lib/React');
 
 },{"./lib/React":53}],159:[function(require,module,exports){
 var React = require('react');
-var ListItem = require('./ListItem.jsx');
 
-var ingredients = [{ "id": "1", "text": "first item" }, { "id": "2", "text": "second item" }, { "id": "3", "text": "third item" }, { "id": "4", "text": "fourth item" }];
-
-var List = React.createClass({
-    displayName: 'List',
-
-    render: function () {
-        var listItems = ingredients.map(function (item) {
-            return React.createElement(ListItem, { key: item.id, ingredient: item.text });
-        });
-
-        return React.createElement(
-            'ul',
-            null,
-            listItems
-        );
-    }
-
-});
-
-module.exports = List;
-
-},{"./ListItem.jsx":160,"react":158}],160:[function(require,module,exports){
-var React = require('react');
-
-var ListItem = React.createClass({
-  displayName: 'ListItem',
+var Box = React.createClass({
+  displayName: 'Box',
 
   render: function () {
+
+    var style = {
+      background: 'red',
+      color: 'white',
+      marginTop: 5
+    };
     return React.createElement(
-      'li',
-      null,
+      'div',
+      { style: style, className: 'panel panel-default' },
       React.createElement(
-        'h4',
-        null,
-        this.props.ingredient
+        'div',
+        { className: 'panel panel-heading' },
+        this.props.title
+      ),
+      React.createElement(
+        'div',
+        { className: 'panel-body' },
+        this.props.description
       )
     );
   }
 
 });
 
-module.exports = ListItem;
+module.exports = Box;
 
-},{"react":158}],161:[function(require,module,exports){
+},{"react":158}],160:[function(require,module,exports){
+var React = require('react');
+var Box = require('./Box.jsx');
+
+var BoxManager = React.createClass({
+  displayName: 'BoxManager',
+
+  render: function () {
+
+    var divStyle = {
+      marginTop: 50
+    };
+
+    var style = {
+      background: this.props.background
+    };
+
+    //onChange is called with every keystroke so we can store the most recent data entered
+    // value is what the user sees in the input box - we point this to newItemText so it updates on every typed
+    return React.createElement(
+      'div',
+      { className: 'row' },
+      React.createElement(
+        'div',
+        { style: style, className: 'col-sm-8' },
+        React.createElement(Box, { title: 'ho', description: 'this is the description' })
+      ),
+      React.createElement(
+        'div',
+        { style: style, className: 'col-sm-4' },
+        'here'
+      )
+    );
+  }
+
+});
+
+module.exports = BoxManager;
+
+},{"./Box.jsx":159,"react":158}],161:[function(require,module,exports){
 var React = require('react');
 
 var ReactDOM = require('react-dom');
 
-var List = require('./components/List.jsx');
+var BoxManager = require('./components/BoxManager.jsx');
 
-ReactDOM.render(React.createElement(List, null), document.getElementById('ingredients'));
+ReactDOM.render(React.createElement(BoxManager, { background: 'green' }), document.getElementById('ingredients'));
 
-},{"./components/List.jsx":159,"react":158,"react-dom":29}]},{},[161]);
+},{"./components/BoxManager.jsx":160,"react":158,"react-dom":29}]},{},[161]);
