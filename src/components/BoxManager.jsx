@@ -28,7 +28,11 @@ var BoxManager = React.createClass({
 
 
             <div style={style} className="col-sm-4">
-              here
+              <div className="row"> <Box title="ho" backgroundColor="blue" description="this is the description"></Box> </div>
+              <div className="row"> <Box title="ho" backgroundColor="red" description="this is the description"></Box> </div>
+              <div className="row"> <Box title="ho" backgroundColor="green" description="this is the description"></Box> </div>
+              <div className="row"> <Box title="ho" backgroundColor="purple" description="this is the description"></Box> </div>
+              <div className="row"> <Box title="ho" backgroundColor="yellow" description="this is the description"></Box> </div>
             </div>
 
 

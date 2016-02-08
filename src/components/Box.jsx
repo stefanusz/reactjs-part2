@@ -5,19 +5,15 @@ var Box = React.createClass({
     render : function (){
 
         var style = {
-          background : 'red',
+          background : this.props.backgroundColor,
           color : 'white',
           marginTop : 5
         }
         return (
-          <div style={style} className="panel panel-default">
-              <div className="panel panel-heading">
-                {this.props.title}
-              </div>
+          <div style={style} className="thumbnail">
 
-              <div className="panel-body">
                 {this.props.description}
-              </div>
+
           </div>
         );
     }
