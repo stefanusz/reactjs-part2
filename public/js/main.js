@@ -19034,22 +19034,56 @@ process.umask = function() { return 0; };
 var React = require('react');
 
 var Box = React.createClass({
-  displayName: 'Box',
+    displayName: 'Box',
 
 
-  render: function () {
+    render: function () {
 
-    var style = {
-      background: this.props.backgroundColor,
-      color: 'white',
-      marginTop: 5
-    };
-    return React.createElement(
-      'div',
-      { style: style, className: 'thumbnail' },
-      this.props.description
-    );
-  }
+        var headingStyle = {
+            background: 'pink'
+        };
+
+        var containerStyle = {
+            borderRadius: '40',
+            background: 'pink',
+            padding: '0',
+            marginTop: '30',
+            minHeight: '200',
+            maxHeight: '200',
+            overflow: 'hidden',
+            textAlign: 'center',
+            backgroundImage: '',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center'
+        };
+
+        var footerStyle = {
+            color: 'red'
+        };
+
+        if (this.props.height) {
+            containerStyle.height = this.props.height;
+        }
+
+        return React.createElement(
+            'div',
+            { style: containerStyle, className: 'panel panel-default' },
+            React.createElement(
+                'div',
+                { style: headingStyle, className: 'panel-heading' },
+                ' Panel heading'
+            ),
+            React.createElement(
+                'div',
+                { className: 'panel-body' },
+                React.createElement(
+                    'h2',
+                    null,
+                    this.props.description
+                )
+            )
+        );
+    }
 
 });
 
@@ -19077,49 +19111,89 @@ var BoxManager = React.createClass({
     // value is what the user sees in the input box - we point this to newItemText so it updates on every typed
     return React.createElement(
       'div',
-      { className: 'row' },
+      { className: 'container-fluid' },
       React.createElement(
         'div',
-        { style: style, className: 'col-sm-8' },
-        React.createElement(Box, { title: 'ho', description: 'this is the description' })
-      ),
-      React.createElement(
-        'div',
-        { style: style, className: 'col-sm-4' },
+        { className: 'row' },
         React.createElement(
           'div',
-          { className: 'row' },
-          ' ',
-          React.createElement(Box, { title: 'ho', backgroundColor: 'blue', description: 'this is the description' }),
-          ' '
+          { style: style, className: 'col-sm-8' },
+          React.createElement(
+            'div',
+            { className: 'row' },
+            React.createElement(
+              'div',
+              { className: 'col-sm-4' },
+              React.createElement(Box, { title: 'ho', backgroundColor: 'blue', textColor: 'red', description: '20' })
+            ),
+            React.createElement(
+              'div',
+              { className: 'col-sm-4' },
+              React.createElement(Box, { title: 'ho', backgroundColor: 'blue', textColor: 'red', description: '$1250' })
+            ),
+            React.createElement(
+              'div',
+              { className: 'col-sm-4' },
+              React.createElement(Box, { title: 'ho', backgroundColor: 'blue', textColor: 'red', description: '$13865' })
+            )
+          ),
+          React.createElement(
+            'div',
+            { className: 'row' },
+            React.createElement(
+              'div',
+              { className: 'col-sm-12' },
+              React.createElement(Box, { title: 'ho', backgroundColor: 'blue', textColor: 'red', description: 'this is the description' })
+            )
+          ),
+          React.createElement(
+            'div',
+            { className: 'row' },
+            React.createElement(
+              'div',
+              { className: 'col-sm-12' },
+              React.createElement(Box, { title: 'ho', backgroundColor: 'blue', textColor: 'red', description: 'this is the description' })
+            )
+          )
         ),
         React.createElement(
           'div',
-          { className: 'row' },
-          ' ',
-          React.createElement(Box, { title: 'ho', backgroundColor: 'red', description: 'this is the description' }),
-          ' '
-        ),
-        React.createElement(
-          'div',
-          { className: 'row' },
-          ' ',
-          React.createElement(Box, { title: 'ho', backgroundColor: 'green', description: 'this is the description' }),
-          ' '
-        ),
-        React.createElement(
-          'div',
-          { className: 'row' },
-          ' ',
-          React.createElement(Box, { title: 'ho', backgroundColor: 'purple', description: 'this is the description' }),
-          ' '
-        ),
-        React.createElement(
-          'div',
-          { className: 'row' },
-          ' ',
-          React.createElement(Box, { title: 'ho', backgroundColor: 'yellow', description: 'this is the description' }),
-          ' '
+          { style: style, className: 'col-sm-4' },
+          React.createElement(
+            'div',
+            { className: 'row' },
+            ' ',
+            React.createElement(Box, { title: 'ho', textColor: 'red', backgroundColor: 'blue', description: '18 °' }),
+            ' '
+          ),
+          React.createElement(
+            'div',
+            { className: 'row' },
+            ' ',
+            React.createElement(Box, { title: 'ho', textColor: 'red', backgroundColor: 'red', description: '1.5k' }),
+            ' '
+          ),
+          React.createElement(
+            'div',
+            { className: 'row' },
+            ' ',
+            React.createElement(Box, { title: 'ho', textColor: 'red', backgroundColor: 'green', description: '50%' }),
+            ' '
+          ),
+          React.createElement(
+            'div',
+            { className: 'row' },
+            ' ',
+            React.createElement(Box, { title: 'ho', textColor: 'red', backgroundColor: 'purple', description: '28%' }),
+            ' '
+          ),
+          React.createElement(
+            'div',
+            { className: 'row' },
+            ' ',
+            React.createElement(Box, { title: 'ho', textColor: 'red', backgroundColor: 'yellow', description: '140.5kb' }),
+            ' '
+          )
         )
       )
     );
