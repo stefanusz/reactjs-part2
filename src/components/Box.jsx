@@ -9,8 +9,8 @@ var Box = React.createClass({
         };
 
         var containerStyle = {
-          borderRadius: '40',
-          background: 'pink',
+          borderRadius: '10',
+          background: this.props.backgroundColor,
           padding: '0',
           marginTop: '30',
           minHeight: '200',
@@ -19,7 +19,8 @@ var Box = React.createClass({
           textAlign: 'center',
           backgroundImage: '',
           backgroundSize: 'cover',
-          backgroundPosition: 'center'
+          backgroundPosition: 'center',
+          opacity: 0.6
         };
 
         var footerStyle = {
@@ -33,7 +34,10 @@ var Box = React.createClass({
         return (
           <div style={containerStyle} className="panel panel-default">
 
-                <div style={headingStyle} className="panel-heading"> Panel heading</div>
+
+                    <div style={headingStyle} className="panel-heading"> Panel heading</div>
+
+
 
                 <div className="panel-body">
                     <h2>{this.props.description}</h2>

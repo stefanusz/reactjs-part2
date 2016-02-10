@@ -19044,8 +19044,8 @@ var Box = React.createClass({
         };
 
         var containerStyle = {
-            borderRadius: '40',
-            background: 'pink',
+            borderRadius: '10',
+            background: this.props.backgroundColor,
             padding: '0',
             marginTop: '30',
             minHeight: '200',
@@ -19054,7 +19054,8 @@ var Box = React.createClass({
             textAlign: 'center',
             backgroundImage: '',
             backgroundSize: 'cover',
-            backgroundPosition: 'center'
+            backgroundPosition: 'center',
+            opacity: 0.6
         };
 
         var footerStyle = {
@@ -19092,6 +19093,7 @@ module.exports = Box;
 },{"react":157}],160:[function(require,module,exports){
 var React = require('react');
 var Box = require('./Box.jsx');
+var LongBox = require('./LongBox.jsx');
 
 var BoxManager = React.createClass({
   displayName: 'BoxManager',
@@ -19143,7 +19145,7 @@ var BoxManager = React.createClass({
             React.createElement(
               'div',
               { className: 'col-sm-12' },
-              React.createElement(Box, { title: 'ho', backgroundColor: 'blue', textColor: 'red', description: 'this is the description' })
+              React.createElement(LongBox, { title: 'longbox', backgroundColor: 'blue', textColor: 'red', description: 'this is the description' })
             )
           ),
           React.createElement(
@@ -19152,7 +19154,7 @@ var BoxManager = React.createClass({
             React.createElement(
               'div',
               { className: 'col-sm-12' },
-              React.createElement(Box, { title: 'ho', backgroundColor: 'blue', textColor: 'red', description: 'this is the description' })
+              React.createElement(LongBox, { title: 'longbox', backgroundColor: 'blue', textColor: 'red', description: 'this is the description' })
             )
           )
         ),
@@ -19203,7 +19205,77 @@ var BoxManager = React.createClass({
 
 module.exports = BoxManager;
 
-},{"./Box.jsx":159,"react":157}],161:[function(require,module,exports){
+},{"./Box.jsx":159,"./LongBox.jsx":161,"react":157}],161:[function(require,module,exports){
+var React = require('react');
+var Box = require('./Box.jsx');
+
+var LongBox = React.createClass({
+    displayName: 'LongBox',
+
+
+    render: function () {
+
+        var headingStyle = {
+            background: 'pink'
+        };
+
+        var containerStyle = {
+            borderRadius: '10',
+            background: 'pink',
+            padding: '0',
+            marginTop: '30',
+            minHeight: '300',
+            maxHeight: '300',
+            overflow: 'hidden',
+            textAlign: 'center',
+            backgroundImage: '',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center'
+        };
+
+        var rowStyle = {
+            height: '50'
+        };
+
+        return React.createElement(
+            'div',
+            { style: containerStyle, className: 'panel panel-default' },
+            React.createElement(
+                'div',
+                { className: 'panel-body' },
+                React.createElement(
+                    'h2',
+                    null,
+                    this.props.description
+                ),
+                React.createElement(
+                    'div',
+                    { style: rowStyle, className: 'row' },
+                    React.createElement(
+                        'div',
+                        { className: 'col-sm-4 ' },
+                        React.createElement(Box, { heading: 'false', height: '50', title: 'ho', textColor: 'red', backgroundColor: 'red', description: '1.5k' })
+                    ),
+                    React.createElement(
+                        'div',
+                        { className: 'col-sm-4 ' },
+                        React.createElement(Box, { heading: 'false', height: '50', title: 'ho', textColor: 'red', backgroundColor: 'red', description: '1.5k' })
+                    ),
+                    React.createElement(
+                        'div',
+                        { className: 'col-sm-4 ' },
+                        React.createElement(Box, { heading: 'false', height: '50', title: 'ho', textColor: 'red', backgroundColor: 'red', description: '1.5k' })
+                    )
+                )
+            )
+        );
+    }
+
+});
+
+module.exports = LongBox;
+
+},{"./Box.jsx":159,"react":157}],162:[function(require,module,exports){
 var React = require('react');
 
 var ReactDOM = require('react-dom');
@@ -19212,4 +19284,4 @@ var BoxManager = require('./components/BoxManager.jsx');
 
 ReactDOM.render(React.createElement(BoxManager, { background: '' }), document.getElementById('ingredients'));
 
-},{"./components/BoxManager.jsx":160,"react":157,"react-dom":1}]},{},[161]);
+},{"./components/BoxManager.jsx":160,"react":157,"react-dom":1}]},{},[162]);
