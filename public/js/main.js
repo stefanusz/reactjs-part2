@@ -19055,11 +19055,16 @@ var Box = React.createClass({
             backgroundImage: '',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
-            opacity: 0.6
+            opacity: 0.6,
+            marginLeft: 0
         };
 
         var footerStyle = {
             color: 'red'
+        };
+
+        var h2style = {
+            marginTop: 70
         };
 
         if (this.props.height) {
@@ -19071,15 +19076,10 @@ var Box = React.createClass({
             { style: containerStyle, className: 'panel panel-default' },
             React.createElement(
                 'div',
-                { style: headingStyle, className: 'panel-heading' },
-                ' Panel heading'
-            ),
-            React.createElement(
-                'div',
                 { className: 'panel-body' },
                 React.createElement(
                     'h2',
-                    null,
+                    { style: h2style },
                     this.props.description
                 )
             )
@@ -19230,11 +19230,15 @@ var LongBox = React.createClass({
             textAlign: 'center',
             backgroundImage: '',
             backgroundSize: 'cover',
-            backgroundPosition: 'center'
+            backgroundPosition: 'center',
+            marginLeft: 0
         };
 
         var rowStyle = {
-            height: '50'
+            display: 'inline-block',
+            textPosition: 'bottom',
+            listStyleType: 'none',
+            marginTop: 50
         };
 
         return React.createElement(
@@ -19253,18 +19257,38 @@ var LongBox = React.createClass({
                     { style: rowStyle, className: 'row' },
                     React.createElement(
                         'div',
-                        { className: 'col-sm-4 ' },
-                        React.createElement(Box, { heading: 'false', height: '50', title: 'ho', textColor: 'red', backgroundColor: 'red', description: '1.5k' })
-                    ),
-                    React.createElement(
-                        'div',
-                        { className: 'col-sm-4 ' },
-                        React.createElement(Box, { heading: 'false', height: '50', title: 'ho', textColor: 'red', backgroundColor: 'red', description: '1.5k' })
-                    ),
-                    React.createElement(
-                        'div',
-                        { className: 'col-sm-4 ' },
-                        React.createElement(Box, { heading: 'false', height: '50', title: 'ho', textColor: 'red', backgroundColor: 'red', description: '1.5k' })
+                        { className: 'col-sm-12' },
+                        React.createElement(
+                            'li',
+                            null,
+                            React.createElement(
+                                'ul',
+                                { style: rowStyle },
+                                React.createElement(
+                                    'h2',
+                                    null,
+                                    this.props.description
+                                )
+                            ),
+                            React.createElement(
+                                'ul',
+                                { style: rowStyle },
+                                React.createElement(
+                                    'h2',
+                                    null,
+                                    this.props.description
+                                )
+                            ),
+                            React.createElement(
+                                'ul',
+                                { style: rowStyle },
+                                React.createElement(
+                                    'h2',
+                                    null,
+                                    this.props.description
+                                )
+                            )
+                        )
                     )
                 )
             )

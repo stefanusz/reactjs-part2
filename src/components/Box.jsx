@@ -20,12 +20,17 @@ var Box = React.createClass({
           backgroundImage: '',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          opacity: 0.6
+          opacity: 0.6,
+          marginLeft: 0
         };
 
         var footerStyle = {
             color: 'red'
         };
+
+        var h2style = {
+            marginTop : 70
+        }
 
         if(this.props.height){
             containerStyle.height = this.props.height;
@@ -35,12 +40,12 @@ var Box = React.createClass({
           <div style={containerStyle} className="panel panel-default">
 
 
-                    <div style={headingStyle} className="panel-heading"> Panel heading</div>
+                    {/*<div style={headingStyle} className="panel-heading"> Panel heading</div>*/}
 
 
 
                 <div className="panel-body">
-                    <h2>{this.props.description}</h2>
+                    <h2 style={h2style} >{this.props.description}</h2>
                 </div>
 
                 {/*<div style={footerStyle} className="panel-footer"> foot </div>*/}
