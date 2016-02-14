@@ -31,7 +31,7 @@ var BoxManager = React.createClass({
                     <div className="col-sm-4"><Box title="ho" backgroundColor="blue" textColor="red" description="$13865"></Box></div>
                   </div>
                   <div className="row">
-                    <div className="col-sm-12"><LongBox title="longbox" backgroundColor="blue" textColor="red" description="this is the description"></LongBox></div>
+                    <div className="col-sm-12"><LongBox title="longbox" backgroundColor="blue" textColor="red" description="this is the11 description"></LongBox></div>
                   </div>
                   <div className="row">
                     <div className="col-sm-12"><LongBox title="longbox" backgroundColor="blue" textColor="red" description="this is the description"></LongBox></div>
